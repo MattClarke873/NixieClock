@@ -1,7 +1,8 @@
+//Librarys
 #include <WiFi.h>
 #include <NTPClient.h>
 #include <WiFiUdp.h>
-#include <TimeLib.h>     // Include the Time library
+#include <TimeLib.h>  // Include the Time library
 
 // WiFi credentials
 const char *ssid = "Wokwi-GUEST";
@@ -17,6 +18,8 @@ const int dataPin = 2;   // ESP32 GPIO connected to 74HC595 DS
 const int DSTButton = 5;
 const int Button2 = 18;
 
+
+//Global variables
 unsigned long previousMillis = 0;           // Stores the last time displayDate was called
 unsigned long interval = 0;                 // Dynamic interval based on random value
 unsigned long previousNtpUpdateMillis = 0;  // Stores the last time NTP was updated
@@ -36,6 +39,9 @@ const int ledMapping[7][10] = {
 };
 
 uint8_t shiftRegisterData[8] = {0}; // 8 bytes for 8 ICs (one byte per shift register)
+
+
+///Functions
 
 //Gets the time from NTP, strips down to individual digits and assigns to LEDS
 void getTime() {
